@@ -60,6 +60,7 @@ def build_ratings(df: pd.DataFrame) -> dict[str, float]:
         away_team = row.away_team
         home_score = row.home_score
         away_score = row.away_score
+        team_advantage = row.neutral
 
         if home_team not in ratings:
             rating_home = ratings.get(home_team, STARTING_RATING)
@@ -71,7 +72,9 @@ def build_ratings(df: pd.DataFrame) -> dict[str, float]:
         else:
             rating_away = ratings.get(away_team) 
         
-        new_rating_home, new_rating_away = update_ratings(rating_home, rating_away, home_score, away_score) 
+        new_rating_home, new_rating_away = update_ratings(rating_home, rating_away, 
+                                                          home_score, away_score,
+                                                          team_advantage) 
 
         ratings[home_team] = new_rating_home
         ratings[away_team] = new_rating_away
