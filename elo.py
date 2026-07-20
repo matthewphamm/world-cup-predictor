@@ -1,7 +1,6 @@
 import pandas as pd
-from data_prep import load_data
+from data_prep import load_data, DATA_PATH
 
-DATA_PATH = 'data/results.csv'
 STARTING_RATING = 1500 
 K_FACTOR = 20 # can be changed
 HOME_ADVANTAGE = 100 # can be changed
