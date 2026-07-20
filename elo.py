@@ -35,6 +35,7 @@ def update_ratings(rating_home: float, rating_away: float,
     """
     expected_home = expected_score(rating_home, rating_away)
     expected_away = 1.0 - expected_home
+    
     actual_home = actual_score(home_score, away_score)
     actual_away = 1.0 - actual_home
     
@@ -44,5 +45,28 @@ def update_ratings(rating_home: float, rating_away: float,
     new_ratings = (new_rating_home, new_rating_away)
     return new_ratings
 
-def build_ratings(df: pd.DataFrame) -> dict[str, float]: # type: ignore
-    pass
+def build_ratings(df: pd.DataFrame) -> dict[str, float]: 
+    ratings: dict[str, float] = {}
+
+    for row in df.itertuples():
+        home_team = row.home_team
+        away_team = row.away_team
+        home_score = row.home_score
+        away_score = row.away_score
+
+        if home_team not in ratings:
+            rating_home = ratings.get(home_team, STARTING_RATE)
+        else:
+            rating_home = ratings.get(home_team) 
+        
+        if away_team not in ratings:
+            rating_away = ratings.get(away_team, STARTING_RATE) 
+        else:
+            rating_away = ratings.get(away_team) 
+        
+        new_rating_home, new_rating_away = update_ratings(rating_home, rating_away, home_score, away_score) 
+
+        ratings[home_team] = new_rating_home
+        ratings[away_team] = new_rating_away
+
+    return ratings
