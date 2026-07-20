@@ -29,8 +29,17 @@ def actual_score(home_score: int, away_score: int) -> float:
 
 def update_ratings(rating_home: float, rating_away: float,
                    home_score: int, away_score: int, 
-                    k: float = K_FACTOR) -> tuple[float, float]: # type: ignore
-    pass
+                    k: float = K_FACTOR) -> tuple[float, float]:
+    expected_home = expected_score(rating_home, rating_away)
+    expected_away = 1.0 - expected_home
+    actual_home = actual_score(home_score, away_score)
+    actual_away = 1.0 - actual_home
+    
+    new_rating_home = rating_home + k * (actual_home - expected_home)
+    new_rating_away = rating_away + k * (actual_away - expected_away)
+
+    new_ratings = (new_rating_home, new_rating_away)
+    return new_ratings
 
 def build_ratings(df: pd.DataFrame) -> dict[str, float]: # type: ignore
     pass
