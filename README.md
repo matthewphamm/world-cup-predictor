@@ -61,8 +61,8 @@ pip install -r requirements.txt
 ## Usage
  
 ```bash
-python predict.py               # single-match prediction, Elo heuristic
-python simulate.py              # single-match prediction, Poisson + Monte Carlo
-python backtest.py              # run the Elo walk-forward backtest
-python backtest_poisson.py      # run the Poisson train/test backtest
+python3 -m elo_src.predict             # single-match prediction, Elo heuristic
+python3 -m poisson_src.simulate        # single-match prediction, Poisson + Monte Carlo
+python3 -m tests.backtest              # run the Elo walk-forward backtest
+python3 -m tests.backtest_poisson      # run the Poisson train/test backtest
 ```
