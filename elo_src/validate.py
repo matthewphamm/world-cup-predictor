@@ -1,6 +1,6 @@
-from data_prep import load_data, DATA_PATH
-from elo import build_ratings
-from predict import predict_match
+from data.data_prep import load_data, DATA_PATH
+from elo_src.elo import build_ratings
+from elo_src.predict import predict_match
 
 TEST_MATCHES = [
     ("Argentina", "France", "draw", True),             # 2022 WC Final (3-3, Argentina won on penalties)

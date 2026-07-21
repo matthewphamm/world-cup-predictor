@@ -1,6 +1,6 @@
 import pandas as pd
-from data_prep import load_data, DATA_PATH
-from elo import build_ratings, update_ratings, STARTING_RATING
+from data.data_prep import load_data, DATA_PATH
+from elo_src.elo import update_ratings, STARTING_RATING
 
 def build_training_df(df: pd.DataFrame) -> pd.DataFrame:
     ratings: dict[str, float] = {}

@@ -1,6 +1,6 @@
-from data_prep import load_data, DATA_PATH
-from elo import update_ratings, STARTING_RATING
-from predict import predict_match
+from data.data_prep import load_data, DATA_PATH
+from elo_src.elo import update_ratings, STARTING_RATING
+from elo_src.predict import predict_match
 
 SCORING_START_YEAR = 2010
 

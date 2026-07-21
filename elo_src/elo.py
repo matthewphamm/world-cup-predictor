@@ -1,5 +1,5 @@
 import pandas as pd
-from data_prep import load_data, DATA_PATH
+from data.data_prep import load_data, DATA_PATH
 
 STARTING_RATING = 1500 
 K_FACTOR = 20 # can be changed

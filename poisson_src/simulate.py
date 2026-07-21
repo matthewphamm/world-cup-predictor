@@ -2,10 +2,10 @@ import numpy as np
 import pandas as pd
 from sklearn.linear_model import PoissonRegressor #type: ignore
 from sklearn.preprocessing import StandardScaler #type: ignore
-from data_prep import load_data
-from elo import build_ratings, STARTING_RATING
-from train_data import build_training_df
-from train_model import train_goal_models
+from data.data_prep import load_data
+from elo_src.elo import build_ratings, STARTING_RATING
+from poisson_src.train_data import build_training_df
+from poisson_src.train_model import train_goal_models
 
 N_SIMULATIONS = 10_000
 

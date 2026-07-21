@@ -1,9 +1,9 @@
 import numpy as np
 import pandas as pd
-from data_prep import load_data,DATA_PATH
-from train_data import build_training_df
-from train_model import train_goal_models
-from simulate import simulate_match
+from data.data_prep import load_data,DATA_PATH
+from poisson_src.train_data import build_training_df
+from poisson_src.train_model import train_goal_models
+from poisson_src.simulate import simulate_match
 
 CUTOFF_DATE = "2010-01-01"
 N_SIMULATIONS = 1000 

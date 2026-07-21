@@ -1,5 +1,5 @@
-from elo import expected_score, build_ratings, HOME_ADVANTAGE
-from data_prep import load_data, DATA_PATH
+from elo_src.elo import expected_score, build_ratings, HOME_ADVANTAGE
+from data.data_prep import load_data, DATA_PATH
 
 # Tunable constants for draw probability 
 DRAW_MAX = 0.34             # highest possible draw probability, for two evenly matched teams
