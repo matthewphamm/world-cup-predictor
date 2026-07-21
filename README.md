@@ -31,15 +31,16 @@ Two prediction methods were built and compared: a lightweight Elo-based heuristi
 **Validation** — both methods were tested with a walk-forward backtest: for every match in the test, predictions were made using only data available before that match's date, then updated with the real result — avoiding lookahead bias.
 
 ## Project Structure
+```
 national-mens-team-predictor/
 ├── data/
 │   ├── data_prep.py
 │   └── results.csv
-├── elo-src/
+├── elo_src/          
 │   ├── elo.py
 │   ├── predict.py
 │   └── validate.py
-├── poisson-src/
+├── poisson_src/       
 │   ├── simulate.py
 │   ├── train_data.py
 │   └── train_model.py
@@ -48,7 +49,7 @@ national-mens-team-predictor/
 │   └── backtest.py
 ├── README.md
 └── requirements.txt
-
+```
 ## Setup
  
 ```bash
