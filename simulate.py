@@ -18,3 +18,8 @@ def expected_goals(rating_home: float, rating_away: float, is_home: int,
     lambda_away = away_model.predict(X_scaled_df)[0]
 
     return lambda_home, lambda_away
+
+def simulate_match(lambda_home: float, lambda_away: float,
+                   n_simulations: int = N_SIMULATIONS) -> dict[str, float]:
+    pass
+
