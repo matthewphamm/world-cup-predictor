@@ -76,3 +76,10 @@ Mart Jürisoo. (2026). *International football results from 1872 to 2026* [Data 
 - Feature scaling and its effect on regularized model convergence (diagnosed and fixed a real `PoissonRegressor` convergence failure caused by unscaled features)
 - Vectorized Monte Carlo simulation with NumPy
 - That added model complexity isn't automatically added accuracy — a documented, evidence-based finding from this project's own results
+
+
+## Limitations & future work
+ 
+- The Poisson model's coefficients are static after a single training split, periodic retraining would allow fairer comparison against the continuously-updating Elo baseline
+- Home/away goals are simulated independently, a Dixon-Coles-style correlation adjustment would likely improve low-scoring draw prediction
+- No player-level features (injuries, squad changes, form) — ratings are derived purely from historical results
