@@ -39,32 +39,28 @@ def predict_match(rating_home: float, rating_away: float,
     return results
 
 if __name__ == "__main__":
-    # Implement a user interface where it asks the user what two teams
-
     df = load_data(DATA_PATH)
     ratings = build_ratings(df)
 
     while True:
-        team_a = input("Enter a National Team: ")
-        team_b = input("Enter a Different National Team: ")
+        team_a = input("Enter a Home National Team: ").strip().title()
+        team_b = input("Enter an Away National Team: ").strip().title()
+        is_neutral = (input("Is the Match a Neutral Venue? (yes/no): ").strip().lower()) in ("yes", "y", "true", "1")
 
-        if not (team_a and team_b):
-            print("Please Enter Valid Teams.")
-        else:
-            formatted_input_a = team_a[0].upper() + team_a[1:].lower()
-            formatted_input_b = team_b[0].upper() + team_b[1:].lower()
+        if team_a in ratings and team_b in ratings and team_a != team_b:
             break
+        print("Please enter valid (and different) teams.\n")
 
-    rating_a = ratings.get(formatted_input_a)
-    rating_b = ratings.get(formatted_input_b)
+    rating_a = ratings.get(team_a)
+    rating_b = ratings.get(team_b)
 
-    print(f"{formatted_input_a} rating: {rating_a:.1f}")
-    print(f"{formatted_input_b} rating: {rating_b:.1f}")
+    print("\n")
+    print(f"{team_a} rating: {rating_a:.1f}")
+    print(f"{team_b} rating: {rating_b:.1f}")
 
-    # Simulate a neutral-venue matchup (e.g. a World Cup game)
-    result = predict_match(rating_a, rating_b, is_neutral=True)
+    result = predict_match(rating_a, rating_b, is_neutral)
 
-    print(f"\n{formatted_input_a} vs {formatted_input_b} (neutral venue):")
-    print(f"  {formatted_input_a} win: {result['Home_win']:.1%}")
+    print(f"\n{team_a} vs {team_b} (Neutral Venue: {is_neutral}):")
+    print(f"  {team_a} win: {result['Home_win']:.1%}")
     print(f"  Draw:          {result['Draw']:.1%}")
-    print(f"  {formatted_input_b} win: {result['Away_win']:.1%}")
+    print(f"  {team_b} win: {result['Away_win']:.1%}")
