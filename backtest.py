@@ -2,7 +2,7 @@ from data_prep import load_data, DATA_PATH
 from elo import update_ratings, STARTING_RATING
 from predict import predict_match
 
-SCORING_START_YEAR = 1950
+SCORING_START_YEAR = 2015
 
 def get_actual_result(home_score: int, away_score: int) -> str:
     if home_score > away_score:
